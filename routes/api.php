@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\StoryController;
+use App\Http\Controllers\QuoteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::apiResource('stories', StoryController::class);
+Route::apiResource('quotes', QuoteController::class);

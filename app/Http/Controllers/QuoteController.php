@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Quote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class QuoteController extends Controller
 {
@@ -36,7 +37,7 @@ class QuoteController extends Controller
      */
     public function show(Quote $quote)
     {
-        //
+        Log::info($quote->author);
     }
 
     /**
