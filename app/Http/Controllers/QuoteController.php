@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\QuoteResource;
 use App\Models\Quote;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -33,11 +34,11 @@ class QuoteController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Models\Quote  $quote
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\QuoteResource.
      */
     public function show(Quote $quote)
     {
-        Log::info($quote->author);
+        return new QuoteResource($quote);
     }
 
     /**

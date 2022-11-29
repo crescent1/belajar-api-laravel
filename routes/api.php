@@ -20,4 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::apiResource('quotes', QuoteController::class);
+Route::apiResource('/quotes', QuoteController::class);
