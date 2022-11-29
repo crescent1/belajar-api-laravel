@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Quote;
 use Illuminate\Http\Request;
 
-class StoryController extends Controller
+class QuoteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,10 +31,10 @@ class StoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Quote $quote)
     {
         //
     }
@@ -42,10 +43,10 @@ class StoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Quote $quote)
     {
         //
     }
@@ -53,10 +54,10 @@ class StoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Quote  $quote
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Quote $quote)
     {
         //
     }
