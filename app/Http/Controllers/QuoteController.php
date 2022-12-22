@@ -24,12 +24,14 @@ class QuoteController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StoreQuoteRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return \App\Http\Resources\QuoteResource
      */
     public function store(StoreQuoteRequest $request)
     {
+        /** @var array $data */
         $data = $request->validated();
 
+        return new QuoteResource(Quote::create($data));
     }
 
     /**
