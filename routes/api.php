@@ -19,5 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('/quotes', QuoteController::class);
+});
 
-Route::apiResource('/quotes', QuoteController::class);
+
