@@ -22,10 +22,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/register', [ApiAuthController::class, 'register']);
 Route::post('/login', [ApiAuthController::class, 'login']);
-Route::post('/logout', [ApiAuthController::class, 'logout']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/quotes', QuoteController::class);
+
+    Route::post('/logout', [ApiAuthController::class, 'logout']);
 });
 
 
