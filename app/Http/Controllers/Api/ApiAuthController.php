@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -24,20 +25,17 @@ class ApiAuthController extends Controller
     /**
      * Undocumented function
      *
-     * @param Request $request
+     * @param LoginRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login(Request $request)
+    public function login(LoginRequest $request)
     {
         /**
          * validasi request dari user
          *
          * @var array $auth data request login dari user
          */
-        $auth = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|string'
-        ]);
+        $auth = $request->validated();
 
         /** cek apakah authentifikasi benar atau salah, jika salah kembalikan ke halaman login
          *  jika benar arahkan ke halaman selanjutnya
