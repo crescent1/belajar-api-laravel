@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
+use App\Http\Resources\LoginResource;
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
@@ -26,7 +27,7 @@ class ApiAuthController extends Controller
      * Undocumented function
      *
      * @param LoginRequest $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return \Illuminate\Http\JsonResponse|\App\Http\Resources\LoginResource
      */
     public function login(LoginRequest $request)
     {
@@ -52,12 +53,12 @@ class ApiAuthController extends Controller
 
         /** @var string $token */
         $token = $user->createToken('token')->plainTextToken;
-        Log::info($token);
+        // Log::info($token);
 
-        return response()->json([
-            'message' => 'success',
+        return new LoginResource([
+            'user' => $user,
             'token' => $token
-        ], 200);
+        ]);
 
     }
 
