@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -23,11 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('/register', [ApiAuthController::class, 'register']);
 Route::post('/login', [ApiAuthController::class, 'login']);
 
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/quotes', QuoteController::class);
 
     Route::post('/logout', [ApiAuthController::class, 'logout']);
 });
-
 
