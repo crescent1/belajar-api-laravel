@@ -49,15 +49,16 @@ class ApiAuthController extends Controller
             ], 401);
         }
 
-        /** @var User */
+        /** @var User $user */
         $user = Auth::user();
 
+        /** @var string $token */
         $token = $user->createToken('token')->plainTextToken;
-
         Log::info($token);
 
         return response()->json([
-            'message' => 'Login'
+            'message' => 'success',
+            'token' => $token
         ], 200);
 
     }
